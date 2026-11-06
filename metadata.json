@@ -1,0 +1,6 @@
+{
+  "name": "باشگاه مشتریان لیلی کیدز",
+  "description": "سامانه جدول رسمی تخفیف‌های اعضای باشگاه مشتریان لیلی کیدز بر اساس رده‌های سفید، سبز، نقره‌ای و طلایی و تعداد تیکه خرید با طراحی مدرن و شیک.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

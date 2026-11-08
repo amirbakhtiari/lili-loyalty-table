@@ -37,14 +37,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="text-sm sm:text-lg font-black tracking-tight font-sans">
                 فروشگاه پوشاک لی لی کیدز
               </span>
-              <span className={`text-[10px] font-black px-2 py-0.5 rounded-full border flex items-center gap-1 ${
-                isLight 
-                  ? 'bg-black text-yellow-400 border-yellow-500/40' 
-                  : 'bg-yellow-400/10 text-yellow-400 border-yellow-400/40'
-              }`}>
-                <span>BLACK FRIDAY</span>
-                <span>⚡</span>
-              </span>
             </div>
             <span
               className={`text-[11px] sm:text-xs font-normal ${

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { BlackFridayHeroBanner } from './components/BlackFridayHeroBanner';
 import { ExactDiscountTable } from './components/ExactDiscountTable';
+import { StoreBranchesSection } from './components/StoreBranchesSection';
 import { Footer } from './components/Footer';
 import { BlackFridaySplash } from './components/BlackFridaySplash';
 
@@ -51,6 +52,9 @@ export default function App() {
 
         {/* Exact Table with Mobile-First Adaptive Cards + Desktop Table */}
         <ExactDiscountTable themeMode={themeMode} />
+
+        {/* 3 Store Branch Addresses */}
+        <StoreBranchesSection themeMode={themeMode} />
       </main>
 
       {/* Footer */}

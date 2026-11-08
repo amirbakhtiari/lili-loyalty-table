@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { MapPin, Copy, Check, Navigation, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { MapPin, Navigation, ExternalLink } from 'lucide-react';
 import { toPersianDigits } from '../data/tierData';
 
 interface StoreBranchesSectionProps {
@@ -51,16 +51,7 @@ const BRANCHES: Branch[] = [
 ];
 
 export const StoreBranchesSection: React.FC<StoreBranchesSectionProps> = ({ themeMode }) => {
-  const [copiedId, setCopiedId] = useState<string | null>(null);
   const isLight = themeMode === 'light';
-
-  const handleCopy = (branch: Branch) => {
-    navigator.clipboard.writeText(branch.address);
-    setCopiedId(branch.id);
-    setTimeout(() => {
-      setCopiedId((curr) => (curr === branch.id ? null : curr));
-    }, 2000);
-  };
 
   return (
     <section
@@ -86,15 +77,13 @@ export const StoreBranchesSection: React.FC<StoreBranchesSectionProps> = ({ them
         </div>
 
         <span className="text-xs text-neutral-400 hidden sm:inline-block">
-          برای مسیریابی روی آیکون فلش یا دکمه نقشه کلیک کنید
+          برای مسیریابی روی دکمه مسیریابی یا آیکون فلش کلیک کنید
         </span>
       </div>
 
       {/* 3 Branches Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
         {BRANCHES.map((branch) => {
-          const isCopied = copiedId === branch.id;
-
           return (
             <div
               key={branch.id}
@@ -159,52 +148,24 @@ export const StoreBranchesSection: React.FC<StoreBranchesSectionProps> = ({ them
                 </p>
               </div>
 
-              {/* Action Buttons Row: Google Maps Navigation + Copy Address */}
-              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-neutral-200/60 dark:border-neutral-800/80">
-                {/* 1. Google Maps Navigation Button */}
+              {/* Action Button: مسیریابی */}
+              <div className="pt-2 border-t border-neutral-200/60 dark:border-neutral-800/80">
                 <a
                   href={branch.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`py-2 px-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer border ${
+                  className={`w-full py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer border ${
                     isLight
                       ? 'bg-amber-50 hover:bg-amber-100 text-amber-950 border-amber-200 shadow-2xs'
                       : 'bg-yellow-400/10 hover:bg-yellow-400/20 text-yellow-400 border-yellow-400/30'
                   }`}
                   title={`مسیریابی ${branch.name} در Google Maps`}
-                  aria-label={`مسیریابی ${branch.name} در Google Maps`}
+                  aria-label={`مسیریابی ${branch.name}`}
                 >
-                  <Navigation className="w-3.5 h-3.5 fill-current" />
-                  <span>Google Maps</span>
-                  <ExternalLink className="w-3 h-3 opacity-60" />
+                  <Navigation className="w-4 h-4 fill-current" />
+                  <span>مسیریابی</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-60" />
                 </a>
-
-                {/* 2. Copy Address Button */}
-                <button
-                  type="button"
-                  onClick={() => handleCopy(branch)}
-                  className={`py-2 px-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer border ${
-                    isCopied
-                      ? 'bg-emerald-600 text-white border-emerald-500 shadow-xs'
-                      : isLight
-                      ? 'bg-stone-50 hover:bg-stone-100 text-stone-700 border-stone-200'
-                      : 'bg-neutral-900 hover:bg-neutral-800 text-neutral-200 border-neutral-800 hover:border-neutral-700'
-                  }`}
-                  title="کپی نشانی شعبه"
-                  aria-label={`کپی نشانی ${branch.name}`}
-                >
-                  {isCopied ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-white" />
-                      <span>کپی شد</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5 text-neutral-400" />
-                      <span>کپی نشانی</span>
-                    </>
-                  )}
-                </button>
               </div>
             </div>
           );

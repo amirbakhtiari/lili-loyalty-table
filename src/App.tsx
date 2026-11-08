@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
-import { YaldaHeroBanner } from './components/YaldaHeroBanner';
+import { BlackFridayHeroBanner } from './components/BlackFridayHeroBanner';
 import { ExactDiscountTable } from './components/ExactDiscountTable';
 import { Footer } from './components/Footer';
-import { YaldaSplash } from './components/YaldaSplash';
+import { BlackFridaySplash } from './components/BlackFridaySplash';
 
 export default function App() {
   const [themeMode, setThemeMode] = useState<'light' | 'dark'>('light');
@@ -20,21 +20,21 @@ export default function App() {
     <div
       className={`min-h-screen flex flex-col font-sans transition-colors duration-300 relative pb-14 sm:pb-0 ${
         isLight
-          ? 'bg-[#FAF8F5] text-stone-900 selection:bg-rose-900 selection:text-white'
-          : 'bg-[#0C0A09] text-neutral-100 selection:bg-rose-600 selection:text-white'
+          ? 'bg-[#FAF8F5] text-stone-900 selection:bg-neutral-900 selection:text-yellow-400'
+          : 'bg-[#08080a] text-neutral-100 selection:bg-yellow-400 selection:text-black'
       }`}
     >
-      {/* Initial App Launch Splash: Bursting Pomegranate */}
+      {/* Initial App Launch Splash: Black Friday Electric Vault */}
       {showSplash && (
-        <YaldaSplash onComplete={() => setShowSplash(false)} />
+        <BlackFridaySplash onComplete={() => setShowSplash(false)} />
       )}
 
-      {/* Warm Yalda Ambient Glows */}
+      {/* Black Friday High-Energy Ambient Glow */}
       <div
-        className={`pointer-events-none absolute top-0 inset-x-0 h-[420px] opacity-35 blur-3xl transition-opacity duration-500 ${
+        className={`pointer-events-none absolute top-0 inset-x-0 h-[460px] opacity-25 blur-3xl transition-opacity duration-500 ${
           isLight
-            ? 'bg-gradient-to-b from-rose-200/40 via-amber-100/20 to-transparent'
-            : 'bg-gradient-to-b from-rose-950/30 via-neutral-900/15 to-transparent'
+            ? 'bg-gradient-to-b from-yellow-200/40 via-amber-100/10 to-transparent'
+            : 'bg-gradient-to-b from-yellow-500/15 via-amber-600/5 to-transparent'
         }`}
       />
 
@@ -46,8 +46,8 @@ export default function App() {
 
       {/* Main Content */}
       <main className="flex-1 relative z-10 space-y-2 sm:space-y-4">
-        {/* Yalda Night Festive Greeting Banner */}
-        <YaldaHeroBanner themeMode={themeMode} />
+        {/* Black Friday High-Energy Hero Banner */}
+        <BlackFridayHeroBanner themeMode={themeMode} />
 
         {/* Exact Table with Mobile-First Adaptive Cards + Desktop Table */}
         <ExactDiscountTable themeMode={themeMode} />
@@ -58,22 +58,22 @@ export default function App() {
 
       {/* Mobile Sticky Quick Banner */}
       <aside 
-        aria-label="نوار جشنواره شب یلدا موبایل"
-        className="fixed bottom-0 inset-x-0 z-30 sm:hidden bg-rose-700 text-white px-4 py-2.5 shadow-lg flex items-center justify-between"
+        aria-label="نوار حراج بلک فرایدی موبایل"
+        className="fixed bottom-0 inset-x-0 z-30 sm:hidden bg-black text-white px-4 py-2.5 shadow-xl border-t border-yellow-400/30 flex items-center justify-between"
       >
         <div className="flex items-center gap-2">
-          <span className="text-base">🍉</span>
+          <span className="text-base text-yellow-400">⚡</span>
           <div className="flex flex-col">
             <span className="text-xs font-black tracking-tight leading-tight">
               فروشگاه پوشاک لی لی کیدز
             </span>
-            <span className="text-[10px] text-rose-100">
-              تخفیف‌های ویژه شب یلدا ۱۴۰۵
+            <span className="text-[10px] text-yellow-400/90 font-medium">
+              حراج بلک فرایدی ۱۴۰۵ · Black Friday
             </span>
           </div>
         </div>
 
-        <div className="bg-rose-800/90 px-3 py-1 rounded-lg text-[11px] font-bold border border-rose-600">
+        <div className="bg-yellow-400 text-black px-3 py-1 rounded-lg text-[11px] font-black shadow-xs">
           <span>تا ۶۵٪ تخفیف</span>
         </div>
       </aside>

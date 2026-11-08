@@ -26,8 +26,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div
             className={`w-9 h-9 sm:w-10 sm:h-10 rounded-2xl flex items-center justify-center font-black text-xs sm:text-sm tracking-wider shadow-2xs transition-colors ${
               isLight
-                ? 'bg-rose-700 text-amber-100'
-                : 'bg-rose-600 text-white'
+                ? 'bg-black text-yellow-400 border border-yellow-400/40'
+                : 'bg-yellow-400 text-black shadow-xs shadow-yellow-400/20'
             }`}
           >
             LK
@@ -37,12 +37,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="text-sm sm:text-lg font-black tracking-tight font-sans">
                 فروشگاه پوشاک لی لی کیدز
               </span>
-              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+              <span className={`text-[10px] font-black px-2 py-0.5 rounded-full border flex items-center gap-1 ${
                 isLight 
-                  ? 'bg-rose-50 text-rose-800 border-rose-200' 
-                  : 'bg-rose-950/80 text-rose-200 border-rose-800'
+                  ? 'bg-black text-yellow-400 border-yellow-500/40' 
+                  : 'bg-yellow-400/10 text-yellow-400 border-yellow-400/40'
               }`}>
-                شب یلدا 🍉
+                <span>BLACK FRIDAY</span>
+                <span>⚡</span>
               </span>
             </div>
             <span

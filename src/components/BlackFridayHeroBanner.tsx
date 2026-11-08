@@ -45,17 +45,13 @@ export const BlackFridayHeroBanner: React.FC<BlackFridayHeroBannerProps> = ({ th
           </div>
 
           {/* Mini Event Feature Highlights */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1 text-xs">
+          <div className="grid grid-cols-2 gap-2.5 pt-1 text-xs">
             <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2">
               <Tag className="w-4 h-4 text-yellow-400 shrink-0" />
               <span className="text-neutral-200 font-semibold">تخفیف مستقیم از ۳۰٪ تا ۶۵٪</span>
             </div>
             <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2">
-              <Zap className="w-4 h-4 text-yellow-400 shrink-0" />
-              <span className="text-neutral-200 font-semibold">اعمال خودکار در سبد خرید</span>
-            </div>
-            <div className="col-span-2 sm:col-span-1 p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2">
-              <span className="text-yellow-400 font-mono font-bold text-sm">⚡</span>
+              <span className="text-yellow-400 font-bold text-sm">⚡</span>
               <span className="text-neutral-200 font-semibold">۴ سطح عضویت ویژه</span>
             </div>
           </div>
